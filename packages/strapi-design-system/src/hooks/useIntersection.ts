@@ -1,6 +1,6 @@
 import { MutableRefObject, useEffect } from 'react';
 
-import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
+import pak from '@radix-ui/react-use-callback-ref';
 
 interface UseIntersectionOptions {
   selectorToWatch: string;
@@ -12,6 +12,7 @@ export const useIntersection = (
   callback: (entry: IntersectionObserverEntry) => void,
   { selectorToWatch, skipWhen = false }: UseIntersectionOptions,
 ) => {
+  const { useCallbackRef } = pak;
   const handleIntersection = useCallbackRef(callback);
 
   useEffect(() => {

@@ -1,10 +1,11 @@
 import { useEffect, useRef } from 'react';
 
-import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
+import pak from '@radix-ui/react-use-callback-ref';
 
 export const useTabsFocus = (selectedTabIndex, onTabChange) => {
   const tabsRef = useRef(null);
   const mountedRef = useRef(null);
+  const { useCallbackRef } = pak;
 
   const handleTabChange = useCallbackRef(onTabChange);
 

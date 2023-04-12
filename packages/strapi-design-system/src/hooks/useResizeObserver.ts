@@ -1,11 +1,12 @@
 import { MutableRefObject, useLayoutEffect } from 'react';
 
-import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
+import pak from '@radix-ui/react-use-callback-ref';
 
 export const useResizeObserver = (
   sources: MutableRefObject<HTMLElement> | MutableRefObject<HTMLElement>[],
   onResize: ResizeObserverCallback,
 ) => {
+  const { useCallbackRef } = pak;
   const handleResize = useCallbackRef(onResize);
 
   useLayoutEffect(() => {

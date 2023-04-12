@@ -1,6 +1,6 @@
 import React, { useRef, useState, Children, cloneElement, useEffect } from 'react';
 
-import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
+import pak from '@radix-ui/react-use-callback-ref';
 import { CarretDown } from '@strapi/icons';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -159,6 +159,8 @@ export const SimpleMenu = ({
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [label]);
+
+  const { useCallbackRef } = pak;
 
   const handleOpen = useCallbackRef(onOpen);
 

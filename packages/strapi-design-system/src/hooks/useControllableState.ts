@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
+import pak from '@radix-ui/react-use-callback-ref';
 
 /**
  * this is basically stolen from RadixUI but tweaked to allow the following:
@@ -29,6 +29,7 @@ function useControllableState<TProp>({
   const isControlled = prop !== undefined;
   const propValue: TProp | undefined = typeof prop === 'function' ? prop(uncontrolledProp) : prop;
   const value = isControlled ? propValue : uncontrolledProp;
+  const { useCallbackRef } = pak;
   const handleChange = useCallbackRef(onChange);
 
   const setValue = React.useCallback(
@@ -55,6 +56,7 @@ function useUncontrolledState<TProp>({ defaultProp, onChange }: Omit<UseControll
   const uncontrolledState = React.useState(defaultProp);
   const [value] = uncontrolledState;
   const prevValueRef = React.useRef(value);
+  const { useCallbackRef } = pak;
   const handleChange = useCallbackRef(onChange);
 
   React.useEffect(() => {
